@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A0 Poster Style for SISL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sisl}[2016/11/11]
+%===============================================================================
+% Required Packages
+%===============================================================================
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{times}
+\RequirePackage{tikz}
+
+\usetikzlibrary{shadings}
+
+%===============================================================================
+% Definitions
+%===============================================================================
+% default column width
+\newdimen\csize
+\csize=0.49\textwidth
+
+%===============================================================================
+% Command Definitions
+%===============================================================================
+\newcommand{\colwidth}[1]{\csize=#1}
+
+% Logos
+\newcommand{\logor}[1]{\def\@logor{#1}}
+\newcommand{\logol}[1]{\def\@logol{#1}}
+
+\newcommand{\makeptitle}
+{
+\begin{minipage}[c]{0.14\textwidth}
+  \begin{center}
+    \includegraphics[width=0.98\textwidth]{\@logol}
+  \end{center}
+\end{minipage}
+\begin{minipage}[c][][c]{0.7\textwidth}
+  \begin{center}
+	\Huge{\textsc{\textbf{\@title}}}
+	
+    \vspace*{0.5cm}	
+	
+	\LARGE{\@author}
+  \end{center}
+\end{minipage}
+\begin{minipage}[c]{0.14\textwidth}
+  \begin{center}
+    \includegraphics[width=0.98\textwidth]{\@logor}
+  \end{center}
+\end{minipage}
+
+\begin{center}
+\rule{0.75\textwidth}{0.5pt}
+\end{center}
+
+\vspace*{0.5cm}
+
+}
+
+\newcommand{\subsec}[2][gray]
+{
+
+\vspace*{0.5cm}
+
+\begin{tikzpicture}
+  \node [rectangle, rounded corners, 
+         draw = #1!20,
+         top color = #1!20,
+         bottom color = #1!20,
+         middle color = white,
+         text width     = 0.90\textwidth,
+         minimum width  = 0.99\textwidth,
+         minimum height = 0.05\textwidth, 
+         anchor = west,
+         font = \Large\bfseries] {#2};
+\end{tikzpicture}
+
+\vspace*{0.5cm}
+
+}
+  
+%===============================================================================
+% Environment Definitions
+%===============================================================================
+% Args: Title, box color
+\newenvironment{mainbox}[2][blue]
+{\begin{minipage}[t]{\csize}
+    \begin{center}
+      \begin{tikzpicture}
+        \node [rectangle, rounded corners,
+               draw = #1!20, 
+               top color = #1!20,
+               bottom color = #1!20,
+               middle color = white,
+               minimum width  = 0.99\textwidth,
+               minimum height = 0.10\textwidth,
+               text centered,
+               font = \LARGE\bfseries] {#2};
+      \end{tikzpicture}
+
+      \vspace*{0.5cm}
+      
+      \begin{minipage}[t]{0.95\textwidth}
+}
+{
+      \end{minipage}
+    \end{center}
+  \end{minipage}}
+
+\endinput
