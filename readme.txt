@@ -115,5 +115,12 @@ modify sty file, changing the tikz definition. Remove font definition in lines:
 something
 \end{mainbox}
 
+--------------------------------------------------------------------------------
+Known Restrictions
+--------------------------------------------------------------------------------
+1. You cannot use float environments such as \table and \figure. However, you
+can directly use tabular and tabularx environments, as well as \includegraphics
+and tikzpicture.
+
 ================================================================================
 
