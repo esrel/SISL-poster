@@ -118,7 +118,7 @@ something
 --------------------------------------------------------------------------------
 Known Restrictions
 --------------------------------------------------------------------------------
-1. You cannot use float environments such as \table and \figure. However, you
+1. You cannot use float environments such as table and figure. However, you
 can directly use tabular and tabularx environments, as well as \includegraphics
 and tikzpicture.
 
