@@ -23,12 +23,14 @@
 %===============================================================================
 % Command Definitions
 %===============================================================================
+% Set column width
 \newcommand{\colwidth}[1]{\csize=#1}
 
 % Logos
 \newcommand{\logor}[1]{\def\@logor{#1}}
 \newcommand{\logol}[1]{\def\@logol{#1}}
 
+% Typeset header using \title, \author, and \logol & \logor
 \newcommand{\makeptitle}
 {
 \begin{minipage}[c]{0.14\textwidth}
@@ -59,6 +61,7 @@
 
 }
 
+% Subsection Box
 \newcommand{\subsec}[2][gray]
 {
 
@@ -74,7 +77,8 @@
          minimum width  = 0.99\textwidth,
          minimum height = 0.05\textwidth, 
          anchor = west,
-         font = \Large\bfseries] {#2};
+         font = \Large\bfseries
+        ] {#2};
 \end{tikzpicture}
 
 \vspace*{0.5cm}
@@ -84,7 +88,7 @@
 %===============================================================================
 % Environment Definitions
 %===============================================================================
-% Args: Title, box color
+% Args: Title, box color (optional)
 \newenvironment{mainbox}[2][blue]
 {\begin{minipage}[t]{\csize}
     \begin{center}
@@ -97,7 +101,8 @@
                minimum width  = 0.99\textwidth,
                minimum height = 0.10\textwidth,
                text centered,
-               font = \LARGE\bfseries] {#2};
+               font = \LARGE\bfseries
+              ] {#2};
       \end{tikzpicture}
 
       \vspace*{0.5cm}

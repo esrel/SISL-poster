@@ -9,15 +9,15 @@ email : stepanov.evgeny.a@gmail.com
 Used Packages
 --------------------------------------------------------------------------------
 The style file makes use of the tikz, xcolor, graphicx and times packages; thus,
-it automatically loads them, i.e. no need to include using \usepackage{}.
+it automatically loads them, i.e. no need to include them using \usepackage{}.
 
 --------------------------------------------------------------------------------
 Poster Format
 --------------------------------------------------------------------------------
-The style file was designed for 2-column portrait A0 posters with 2 logos in 
+The style file is designed for 2-column portrait A0 posters with 2 logos in 
 upper left and upper right corners (to the left and right of the title). 
 Both logos are required. The default 'reading' direction of the poster is from
-left to right and from top to bottom. 
+left to right and from top to bottom.
 
 --------------------------------------------------------------------------------
 Number of columns
@@ -35,11 +35,11 @@ The poster header is generated automatically from the \title{} and \author{}
 definitions in the tex file preamble. Make sure to set date as empty (\date{})
 to avoid it to be included into the header.
 
-As style require 2 logos, they are set using \logol{} and \logor{} commands for
-left and right logos respectively (provide path to image files). 
+As style requires 2 logos, they are set using \logol{} and \logor{} commands
+for left and right logos respectively (provide path to image files). 
 All image formats supported by graphicx package can be used.
 
-Once all these are defined envoking \makeptitle command within document 
+Once all these are defined calling \makeptitle command within document
 environment will typeset the header.
 
 --------------------------------------------------------------------------------
@@ -49,15 +49,16 @@ The style file provides definitions of colored boxes for major poster sections
 and colored boxes for sub-section headings.
 
 Major poster sections are implemented as mainbox environment.
-The environment requires title argument, which will be displayed in the colored
-box. The color of the box is shaded blue by default, and it is controlled by
-optional paramenter. All colors and color specifications supported by xcolor 
-can be used (e.g. red, red!20, red!20!black, etc.).
+The environment requires title as an argument, which will be displayed in the
+colored box. The color of the box is shaded blue by default. The color can be
+controlled by optional paramenter in square brackets. All colors and color
+specifications supported by xcolor package can be used
+(e.g. red, red!20, red!20!black, etc.).
 
 \begin{mainbox}[color]{Title}
 \end{mainbox}
 
-Poster sub-sections are triggered using \subsec[color]{title} command.
+Poster sub-sections are set using \subsec[color]{title} command.
 Similar to mainbox, it requires title as an argument, and its color can be
 controlled using optional parameter.
 
@@ -67,7 +68,7 @@ How to Control Box Placement
 Main sections of the poster are implemented using minipage package. Thus, it is
 advised to use mainbox environment as follows.
 
-To make to sections appear in the same row do not leave extra new line, e.g.
+(1) To make sections appear in the same row do not leave extra new line:
 
 \begin{mainbox}{BOX 1}
 something
@@ -76,7 +77,8 @@ something
 something
 \end{mainbox}
 
-To start a new row of boxes simply add a new line, e.g.
+(2) To start a new row of boxes simply add a new line:
+
 \begin{mainbox}{BOX 2}
 something
 \end{mainbox}
@@ -85,9 +87,8 @@ something
 something
 \end{mainbox}
 
-To make the poster look 'prettier' it is advised to control the space between 
-rows using \vspace{} command, as:
-
+(3) To make the poster look 'prettier' it is advised to control the space
+between rows using \vspace{} command:
 
 \begin{mainbox}{BOX 2}
 something
@@ -103,13 +104,13 @@ something
 How to Control Font Style and Color
 --------------------------------------------------------------------------------
 Even though the style file provides default fonts and styles for boxes and sub-
-sections, all can be controlled as desired using standard latex commands.
+sections, these can be controlled as desired using standard latex commands.
 
 For example, the below command will create green title box and typeset title
-'BOX1' with Huge italic and blue-black font. By default, all section and
-subsection titles are \Large and in bold. To change that you will need to 
-modify sty file, changing the tikz definition. Remove font definition in lines:
-"font = \Large\bfseries".
+'BOX 1' with Huge italic and blue-black font. By default, all section and
+subsection titles are \Large and bold. To change that you will need to modify
+style file, changing the tikz definition. Search for "font = \Large\bfseries"
+and comment/delete that.
 
 \begin{mainbox}[green!50!black]{{\color{blue!25!black}\Huge{\textit{BOX 1}}}}
 something
@@ -118,9 +119,9 @@ something
 --------------------------------------------------------------------------------
 Known Restrictions
 --------------------------------------------------------------------------------
-1. You cannot use float environments such as table and figure. However, you
-can directly use tabular and tabularx environments, as well as \includegraphics
-and tikzpicture.
+(1) You cannot use float environments such as table and figure. However, you
+can use tabular and tabularx environments, as well as \includegraphics and
+tikzpicture.
 
 ================================================================================
 
