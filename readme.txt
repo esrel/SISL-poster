@@ -117,11 +117,17 @@ something
 \end{mainbox}
 
 --------------------------------------------------------------------------------
-Known Restrictions
+Known Restrictions & Solutions
 --------------------------------------------------------------------------------
 (1) You cannot use float environments such as table and figure. However, you
 can use tabular and tabularx environments, as well as \includegraphics and
 tikzpicture.
 
+(2) Because style file was designed for A0 portrait poster, logo sizes are set
+to 0.14\textwidth. In landscape poster format, 0.14\textwidth is wider, thus
+the header itself occupies more space. To reduce the space change the width
+specified by lines \includegraphics[width=0.98\textwidth]{\@logol} and 
+\includegraphics[width=0.98\textwidth]{\@logor} to a lower value as desired
+(e.g. 0.7\textwidth).
 ================================================================================
 
