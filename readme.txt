@@ -45,60 +45,71 @@ environment will typeset the header.
 --------------------------------------------------------------------------------
 Provided Commands and Environments
 --------------------------------------------------------------------------------
-The style file provides definitions of colored boxes for major poster sections 
-and colored boxes for sub-section headings.
+The style file provides definitions of colored boxes for titles of major poster
+section and sub-section headings.
 
-Major poster sections are implemented as mainbox environment.
-The environment requires title as an argument, which will be displayed in the
-colored box. The color of the box is shaded blue by default. The color can be
-controlled by optional paramenter in square brackets. All colors and color
-specifications supported by xcolor package can be used
-(e.g. red, red!20, red!20!black, etc.).
+Both section and sub-section headings (colored boxes) are implemented as 
+commands: \psec and \psubsec, respectively. The commands take 1 required
+argument -- title text. The color of the box can be provided as an optional
+argument.
 
-\begin{mainbox}[color]{Title}
-\end{mainbox}
+\psec[color]{title}
+\psubsec[color]{title}
 
-Poster sub-sections are set using \subsec[color]{title} command.
-Similar to mainbox, it requires title as an argument, and its color can be
-controlled using optional parameter.
+For convenience, major poster sections are implemented as psecbox environment.
+The environment is a wrapper around \psec command and additionally provides
+text indentation within the box (implemented as minipage). 
+
+Similar to \psec command, the environment requires title as an argument, which
+will be displayed in the colored box. The color of the box is shaded blue by 
+default. Similarly, the color can be controlled by optional paramenter in 
+square brackets. All colors and color specifications supported by xcolor 
+package can be used (e.g. red, red!20, red!20!black, etc.).
+
+\begin{psecbox}[color]{Title}
+\end{psecbox}
 
 --------------------------------------------------------------------------------
 How to Control Box Placement
 --------------------------------------------------------------------------------
 Main sections of the poster are implemented using minipage package. Thus, it is
-advised to use mainbox environment as follows.
+advised to use psecbox environment as follows.
 
 (1) To make sections appear in the same row do not leave extra new line:
 
-\begin{mainbox}{BOX 1}
+\begin{psecbox}{BOX 1}
 something
-\end{mainbox}
-\begin{mainbox}{BOX 2}
+\end{psecbox}
+\begin{psecbox}{BOX 2}
 something
-\end{mainbox}
+\end{psecbox}
 
 (2) To start a new row of boxes simply add a new line:
 
-\begin{mainbox}{BOX 2}
+\begin{psecbox}{BOX 2}
 something
-\end{mainbox}
+\end{psecbox}
 
-\begin{mainbox}{BOX 3}
+\begin{psecbox}{BOX 3}
 something
-\end{mainbox}
+\end{psecbox}
 
 (3) To make the poster look 'prettier' it is advised to control the space
 between rows using \vspace{} command:
 
-\begin{mainbox}{BOX 2}
+\begin{psecbox}{BOX 2}
 something
-\end{mainbox}
+\end{psecbox}
 
 \vspace*{0.5cm}
 
-\begin{mainbox}{BOX 3}
+\begin{psecbox}{BOX 3}
 something
-\end{mainbox}
+\end{psecbox}
+
+Note:
+If desired, psecbox environment can be completely ignored; and placement
+controlled by minipage environment and \psec command.
 
 --------------------------------------------------------------------------------
 How to Control Font Style and Color
@@ -112,9 +123,27 @@ subsection titles are \Large and bold. To change that you will need to modify
 style file, changing the tikz definition. Search for "font = \Large\bfseries"
 and comment/delete that.
 
-\begin{mainbox}[green!50!black]{{\color{blue!25!black}\Huge{\textit{BOX 1}}}}
+\begin{psecbox}[green!50!black]{{\color{blue!25!black}\Huge{\textit{BOX 1}}}}
 something
-\end{mainbox}
+\end{psecbox}
+
+However, the style file provides several commands to set default font syles and
+colors for title, author, psec and psubsec using the following:
+
+\setptitlestyle{style}{color}
+\setpauthorstyle{style}{color}
+\setpsecstyle{style}{color}
+\setpsubsecstyle{style}{color}
+
+The color is controlled by xcolor.
+
+The style, on the other hand is specified as \fontsize\fontseries\fontshape:
+e.g. \Large\bfseries\itshape. Consult LaTeX manual or wiki for desired style.
+(https://en.wikibooks.org/wiki/LaTeX/Fonts)
+
+Both -- standard LaTeX commands & default style definitions via \secXstyle can
+be used together. In such cases the former takes precedence
+(default LaTeX behavior).
 
 --------------------------------------------------------------------------------
 Known Restrictions & Solutions
@@ -129,5 +158,12 @@ the header itself occupies more space. To reduce the space change the width
 specified by lines \includegraphics[width=0.98\textwidth]{\@logol} and 
 \includegraphics[width=0.98\textwidth]{\@logor} to a lower value as desired
 (e.g. 0.7\textwidth).
+
+(3) In case title or author spans several lines, addtional spacing might be
+required. It can be controlled using \vspace*{} command directly in title and 
+author definitions:
+(e.g. \title{Poster Template\\ \vspace*{1cm} (Check Readme File)})
+
+
 ================================================================================
 

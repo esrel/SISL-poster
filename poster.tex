@@ -1,48 +1,74 @@
-%\documentclass[portrait,posterdraft]{a0poster}
 \documentclass[portrait,a0,final]{a0poster}
 
 \usepackage{sisl}
 
 % Set column width: default: 0.49\textwidth
-%\colwidth{0.32\textwidth}
+%\setcolwidth{0.32\textwidth}
 
 % Set Logos (left & right)
 \logol{img/sisl.eps}
 \logor{img/logo.eps}
 
 % Set Title
-\title{{\color{blue!25!black}Poster Template for SISLab}}
+% Use \vspace to increase spacing
+\title{Poster Template\\ \vspace*{1cm} (Check Readme File)}
 
 % Set Authors
+% Use \vspace to increase spacing
 \author{
-\textbf{Evgeny A. Stepanov}\\
-Signals and Interactive Systems Lab,\\
+\textbf{Evgeny A. Stepanov}\\ \vspace*{0.5cm}
+Signals and Interactive Systems Lab,
 University of Trento, Italy
 }
 
 \date{}
 
+% Set text styles and colors for title, author, psec & psubsec
+% default values are below
+%\setptitlestyle{\Huge\bfseries\scshape}{blue!25!black}
+%\setpauthorstyle{\LARGE}{black}
+%\setpsecstyle{\LARGE\bfseries}{blue!25!black}
+\setpsubsecstyle{\Large\bfseries\itshape}{blue!25!black}
+
 \begin{document}
 
 \makeptitle
 
-\begin{mainbox}[green!50!black]{{\color{blue!25!black}BOX 1}}
-something
-\end{mainbox}
-\begin{mainbox}{BOX 2}
-something
+\begin{psecbox}[green!50!black]{{\color{red}\textit{BOX 1}}}
 
-\subsec[red]{TEST}
-\subsec{TEST}
+TEXT
 
-\end{mainbox}
+\end{psecbox}
+\begin{psecbox}{BOX 2}
+TEXT
+
+\psubsec[red]{SUB-SEC 2.1}
+\psubsec[green]{SUB-SEC 2.2}
+
+\end{psecbox}
 
 \vspace*{0.5cm}
 
-\begin{mainbox}{~}
-something
-\end{mainbox}
-\begin{mainbox}[black]{~}
-something
-\end{mainbox}
+\begin{minipage}[t]{0.49\textwidth}
+\psec{BOX 3: psec in minipage 1}
+
+TEXT
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+\psec{BOX 4: psec in minipage 2}
+
+TEXT
+\end{minipage}
+
+\vspace*{0.5cm}
+
+\begin{minipage}[t]{0.49\textwidth}
+\psubsec{psubsec in minipage 1}
+TEXT
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+\psubsec{psubsec in minipage 2}
+TEXT
+\end{minipage}
+
 \end{document}
