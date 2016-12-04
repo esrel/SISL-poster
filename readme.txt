@@ -146,6 +146,18 @@ be used together. In such cases the former takes precedence
 (default LaTeX behavior).
 
 --------------------------------------------------------------------------------
+How to Set Background Color
+--------------------------------------------------------------------------------
+The color of the poster background can be set using pagecolor package's 
+\pagecolor{color} command. The colors are controlled by xcolor package.
+
+\usepackage{pagecolor}
+
+\begin{document}
+\pagecolor{blue!5}
+\end{document}
+
+--------------------------------------------------------------------------------
 Known Restrictions & Solutions
 --------------------------------------------------------------------------------
 (1) You cannot use float environments such as table and figure. However, you
