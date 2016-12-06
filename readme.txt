@@ -69,6 +69,10 @@ package can be used (e.g. red, red!20, red!20!black, etc.).
 \begin{psecbox}[color]{Title}
 \end{psecbox}
 
+\setpsecheight and \setpsubsecheight commands are provided to set height of 
+psec and psubsec boxes, respectively. They accept both relative and absolute
+values, such as 0.05\textwidth and 4cm, for instance.
+
 --------------------------------------------------------------------------------
 How to Control Box Placement
 --------------------------------------------------------------------------------
