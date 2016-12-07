@@ -131,8 +131,8 @@ and comment/delete that.
 something
 \end{psecbox}
 
-However, the style file provides several commands to set default font syles and
-colors for title, author, psec and psubsec using the following:
+However, the style file provides several commands to set default font styles 
+and colors for title, author, psec and psubsec using the following commands:
 
 \setptitlestyle{style}{color}
 \setpauthorstyle{style}{color}
@@ -179,6 +179,11 @@ specified by lines \includegraphics[width=0.98\textwidth]{\@logol} and
 required. It can be controlled using \vspace*{} command directly in title and 
 author definitions:
 (e.g. \title{Poster Template\\ \vspace*{1cm} (Check Readme File)})
+
+(4) In case variable size of boxes is used (e.g. via minipage environment), to 
+ensure equal height of colored psec boxes, it is advised to set default psec 
+and psubsec heights using \setpsecheight and \setpsubsecheight commands (to
+absolute values).
 
 
 ================================================================================
