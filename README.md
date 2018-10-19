@@ -43,7 +43,7 @@ Both section and sub-section headings (colored boxes) are implemented as command
 
 For convenience, major poster sections are implemented as `psecbox` environment. The environment is a wrapper around `\psec` command and additionally provides text indentation within the box (implemented as minipage). 
 
-Similar to `\psec` command, the environment requires title as an argument, which will be displayed in the colored box. The color of the box is shaded blue by default. Similarly, the color can be controlled by optional paramenter in square brackets. All colors and color specifications supported by `xcolor` package can be used (e.g. `red`, `red!20`, `red!20!black`, etc.).
+Similar to `\psec` command, the environment requires title as an argument, which will be displayed in the colored box. The color of the box is shaded blue by default. Similarly, the color can be controlled by optional parameter in square brackets. All colors and color specifications supported by `xcolor` package can be used (e.g. `red`, `red!20`, `red!20!black`, etc.).
 
 ```
 \begin{psecbox}[color]{Title}
